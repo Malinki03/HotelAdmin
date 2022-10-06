@@ -18,6 +18,7 @@ namespace HotelAdmin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             new TipusHabController();
+            //hey
         }
     }
 }
