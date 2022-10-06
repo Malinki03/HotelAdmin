@@ -1,6 +1,6 @@
 ﻿namespace HotelAdmin
 {
-    partial class Form1
+    partial class CRUDTipusHab
     {
         /// <summary>
         /// Required designer variable.

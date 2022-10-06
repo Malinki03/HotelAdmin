@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelAdmin
 {
-    public partial class Form1 : Form
+    public partial class CRUDTipusHab : Form
     {
-        public Form1()
+        public CRUDTipusHab()
         {
             InitializeComponent();
         }
