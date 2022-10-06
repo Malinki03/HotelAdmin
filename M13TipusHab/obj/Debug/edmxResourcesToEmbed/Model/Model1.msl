@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hotelModelStoreContainer" CdmEntityContainer="hotelEntities">
+    <EntitySetMapping Name="calendaris">
+      <EntityTypeMapping TypeName="hotelModel.calendari">
+        <MappingFragment StoreEntitySet="calendari">
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="esFestiu" ColumnName="esFestiu" />
+          <ScalarProperty Name="Tarifa_codi" ColumnName="Tarifa_codi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="costas">
+      <EntityTypeMapping TypeName="hotelModel.costa">
+        <MappingFragment StoreEntitySet="costa">
+          <ScalarProperty Name="TipusHab_codi" ColumnName="TipusHab_codi" />
+          <ScalarProperty Name="Tarifa_codi" ColumnName="Tarifa_codi" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+          <ScalarProperty Name="DesDe" ColumnName="DesDe" />
+          <ScalarProperty Name="FinsA" ColumnName="FinsA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="costaDias">
+      <EntityTypeMapping TypeName="hotelModel.costaDia">
+        <MappingFragment StoreEntitySet="costaDia">
+          <ScalarProperty Name="TipusHab_codi" ColumnName="TipusHab_codi" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitacios">
+      <EntityTypeMapping TypeName="hotelModel.habitacio">
+        <MappingFragment StoreEntitySet="habitacio">
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="TipusHab_codi" ColumnName="TipusHab_codi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitacioDias">
+      <EntityTypeMapping TypeName="hotelModel.habitacioDia">
+        <MappingFragment StoreEntitySet="habitacioDia">
+          <ScalarProperty Name="Habitacio_numero" ColumnName="Habitacio_numero" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="Reserva_codi" ColumnName="Reserva_codi" />
+          <ScalarProperty Name="preu" ColumnName="preu" />
+          <ScalarProperty Name="Factura_codi" ColumnName="Factura_codi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservas">
+      <EntityTypeMapping TypeName="hotelModel.reserva">
+        <MappingFragment StoreEntitySet="reserva">
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="dataReserva" ColumnName="dataReserva" />
+          <ScalarProperty Name="dataInPrev" ColumnName="dataInPrev" />
+          <ScalarProperty Name="dataInReal" ColumnName="dataInReal" />
+          <ScalarProperty Name="dataOutPrev" ColumnName="dataOutPrev" />
+          <ScalarProperty Name="dataOutReal" ColumnName="dataOutReal" />
+          <ScalarProperty Name="dataCancel" ColumnName="dataCancel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tarifas">
+      <EntityTypeMapping TypeName="hotelModel.tarifa">
+        <MappingFragment StoreEntitySet="tarifa">
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipusBalcoes">
+      <EntityTypeMapping TypeName="hotelModel.tipusBalco">
+        <MappingFragment StoreEntitySet="tipusBalco">
+          <ScalarProperty Name="tipusBalco1" ColumnName="tipusBalco" />
+          <ScalarProperty Name="nomTipusBalco" ColumnName="nomTipusBalco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipusHabs">
+      <EntityTypeMapping TypeName="hotelModel.tipusHab">
+        <MappingFragment StoreEntitySet="tipusHab">
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="llitsInd" ColumnName="llitsInd" />
+          <ScalarProperty Name="llitsDob" ColumnName="llitsDob" />
+          <ScalarProperty Name="qntPersones" ColumnName="qntPersones" />
+          <ScalarProperty Name="tipusBalco" ColumnName="tipusBalco" />
+          <ScalarProperty Name="teBanyera" ColumnName="teBanyera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

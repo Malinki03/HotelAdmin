@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="calendari">
+    <Key>
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="esFestiu" Type="Int16" />
+    <Property Name="Tarifa_codi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tarifa" Relationship="Self.calendari_fk_Calendari_Tarifa1" FromRole="calendari" ToRole="tarifa" />
+    <NavigationProperty Name="costaDias" Relationship="Self.FK_costaDia_calendari" FromRole="calendari" ToRole="costaDia" />
+    <NavigationProperty Name="habitacioDias" Relationship="Self.FK_habitacioDia_calendari" FromRole="calendari" ToRole="habitacioDia" />
+  </EntityType>
+  <EntityType Name="costa">
+    <Key>
+      <PropertyRef Name="TipusHab_codi" />
+      <PropertyRef Name="Tarifa_codi" />
+      <PropertyRef Name="DesDe" />
+    </Key>
+    <Property Name="TipusHab_codi" Type="Int32" Nullable="false" />
+    <Property Name="Tarifa_codi" Type="Int32" Nullable="false" />
+    <Property Name="preu" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="DesDe" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FinsA" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tarifa" Relationship="Self.costa_fk_TipusHab_has_Tarifa_Tarifa1" FromRole="costa" ToRole="tarifa" />
+    <NavigationProperty Name="tipusHab" Relationship="Self.costa_fk_TipusHab_has_Tarifa_TipusHab1" FromRole="costa" ToRole="tipusHab" />
+  </EntityType>
+  <EntityType Name="costaDia">
+    <Key>
+      <PropertyRef Name="TipusHab_codi" />
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="TipusHab_codi" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="preu" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+    <NavigationProperty Name="calendari" Relationship="Self.FK_costaDia_calendari" FromRole="costaDia" ToRole="calendari" />
+    <NavigationProperty Name="tipusHab" Relationship="Self.FK_costaDia_tipusHab" FromRole="costaDia" ToRole="tipusHab" />
+  </EntityType>
+  <EntityType Name="habitacio">
+    <Key>
+      <PropertyRef Name="numero" />
+    </Key>
+    <Property Name="numero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipusHab_codi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="habitacioDias" Relationship="Self.FK_habitacioDia_habitacio" FromRole="habitacio" ToRole="habitacioDia" />
+    <NavigationProperty Name="tipusHab" Relationship="Self.habitacio_fk_Habitacio_TipusHab1" FromRole="habitacio" ToRole="tipusHab" />
+  </EntityType>
+  <EntityType Name="habitacioDia">
+    <Key>
+      <PropertyRef Name="Habitacio_numero" />
+      <PropertyRef Name="data" />
+    </Key>
+    <Property Name="Habitacio_numero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Reserva_codi" Type="Int32" />
+    <Property Name="preu" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="Factura_codi" Type="Int32" />
+    <NavigationProperty Name="calendari" Relationship="Self.FK_habitacioDia_calendari" FromRole="habitacioDia" ToRole="calendari" />
+    <NavigationProperty Name="habitacio" Relationship="Self.FK_habitacioDia_habitacio" FromRole="habitacioDia" ToRole="habitacio" />
+    <NavigationProperty Name="reserva" Relationship="Self.FK_habitacioDia_reserva" FromRole="habitacioDia" ToRole="reserva" />
+  </EntityType>
+  <EntityType Name="reserva">
+    <Key>
+      <PropertyRef Name="codi" />
+    </Key>
+    <Property Name="codi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dataReserva" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dataInPrev" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dataInReal" Type="DateTime" Precision="0" />
+    <Property Name="dataOutPrev" Type="DateTime" Precision="0" />
+    <Property Name="dataOutReal" Type="DateTime" Precision="0" />
+    <Property Name="dataCancel" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="habitacioDias" Relationship="Self.FK_habitacioDia_reserva" FromRole="reserva" ToRole="habitacioDia" />
+  </EntityType>
+  <EntityType Name="tarifa">
+    <Key>
+      <PropertyRef Name="codi" />
+    </Key>
+    <Property Name="codi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="color" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="calendaris" Relationship="Self.calendari_fk_Calendari_Tarifa1" FromRole="tarifa" ToRole="calendari" />
+    <NavigationProperty Name="costas" Relationship="Self.costa_fk_TipusHab_has_Tarifa_Tarifa1" FromRole="tarifa" ToRole="costa" />
+  </EntityType>
+  <EntityType Name="tipusBalco">
+    <Key>
+      <PropertyRef Name="tipusBalco1" />
+    </Key>
+    <Property Name="tipusBalco1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nomTipusBalco" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tipusHabs" Relationship="Self.FK_tipusHab_tipusBalco" FromRole="tipusBalco" ToRole="tipusHab" />
+  </EntityType>
+  <EntityType Name="tipusHab">
+    <Key>
+      <PropertyRef Name="codi" />
+    </Key>
+    <Property Name="codi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="llitsInd" Type="Int16" Nullable="false" />
+    <Property Name="llitsDob" Type="Int16" Nullable="false" />
+    <Property Name="qntPersones" Type="Int16" />
+    <Property Name="tipusBalco" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="teBanyera" Type="Int16" />
+    <NavigationProperty Name="costas" Relationship="Self.costa_fk_TipusHab_has_Tarifa_TipusHab1" FromRole="tipusHab" ToRole="costa" />
+    <NavigationProperty Name="costaDias" Relationship="Self.FK_costaDia_tipusHab" FromRole="tipusHab" ToRole="costaDia" />
+    <NavigationProperty Name="habitacios" Relationship="Self.habitacio_fk_Habitacio_TipusHab1" FromRole="tipusHab" ToRole="habitacio" />
+    <NavigationProperty Name="tipusBalco1" Relationship="Self.FK_tipusHab_tipusBalco" FromRole="tipusHab" ToRole="tipusBalco" />
+  </EntityType>
+  <Association Name="calendari_fk_Calendari_Tarifa1">
+    <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
+    <End Role="calendari" Type="Self.calendari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarifa">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="calendari">
+        <PropertyRef Name="Tarifa_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_costaDia_calendari">
+    <End Role="calendari" Type="Self.calendari" Multiplicity="1" />
+    <End Role="costaDia" Type="Self.costaDia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="calendari">
+        <PropertyRef Name="data" />
+      </Principal>
+      <Dependent Role="costaDia">
+        <PropertyRef Name="data" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_habitacioDia_calendari">
+    <End Role="calendari" Type="Self.calendari" Multiplicity="1" />
+    <End Role="habitacioDia" Type="Self.habitacioDia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="calendari">
+        <PropertyRef Name="data" />
+      </Principal>
+      <Dependent Role="habitacioDia">
+        <PropertyRef Name="data" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="costa_fk_TipusHab_has_Tarifa_Tarifa1">
+    <End Role="tarifa" Type="Self.tarifa" Multiplicity="1" />
+    <End Role="costa" Type="Self.costa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tarifa">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="costa">
+        <PropertyRef Name="Tarifa_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="costa_fk_TipusHab_has_Tarifa_TipusHab1">
+    <End Role="tipusHab" Type="Self.tipusHab" Multiplicity="1" />
+    <End Role="costa" Type="Self.costa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipusHab">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="costa">
+        <PropertyRef Name="TipusHab_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_costaDia_tipusHab">
+    <End Role="tipusHab" Type="Self.tipusHab" Multiplicity="1" />
+    <End Role="costaDia" Type="Self.costaDia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipusHab">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="costaDia">
+        <PropertyRef Name="TipusHab_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_habitacioDia_habitacio">
+    <End Role="habitacio" Type="Self.habitacio" Multiplicity="1" />
+    <End Role="habitacioDia" Type="Self.habitacioDia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitacio">
+        <PropertyRef Name="numero" />
+      </Principal>
+      <Dependent Role="habitacioDia">
+        <PropertyRef Name="Habitacio_numero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="habitacio_fk_Habitacio_TipusHab1">
+    <End Role="tipusHab" Type="Self.tipusHab" Multiplicity="1" />
+    <End Role="habitacio" Type="Self.habitacio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipusHab">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="habitacio">
+        <PropertyRef Name="TipusHab_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_habitacioDia_reserva">
+    <End Role="reserva" Type="Self.reserva" Multiplicity="0..1" />
+    <End Role="habitacioDia" Type="Self.habitacioDia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reserva">
+        <PropertyRef Name="codi" />
+      </Principal>
+      <Dependent Role="habitacioDia">
+        <PropertyRef Name="Reserva_codi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tipusHab_tipusBalco">
+    <End Role="tipusBalco" Type="Self.tipusBalco" Multiplicity="0..1" />
+    <End Role="tipusHab" Type="Self.tipusHab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipusBalco">
+        <PropertyRef Name="tipusBalco1" />
+      </Principal>
+      <Dependent Role="tipusHab">
+        <PropertyRef Name="tipusBalco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="calendaris" EntityType="Self.calendari" />
+    <EntitySet Name="costas" EntityType="Self.costa" />
+    <EntitySet Name="costaDias" EntityType="Self.costaDia" />
+    <EntitySet Name="habitacios" EntityType="Self.habitacio" />
+    <EntitySet Name="habitacioDias" EntityType="Self.habitacioDia" />
+    <EntitySet Name="reservas" EntityType="Self.reserva" />
+    <EntitySet Name="tarifas" EntityType="Self.tarifa" />
+    <EntitySet Name="tipusBalcoes" EntityType="Self.tipusBalco" />
+    <EntitySet Name="tipusHabs" EntityType="Self.tipusHab" />
+    <AssociationSet Name="calendari_fk_Calendari_Tarifa1" Association="Self.calendari_fk_Calendari_Tarifa1">
+      <End Role="tarifa" EntitySet="tarifas" />
+      <End Role="calendari" EntitySet="calendaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_costaDia_calendari" Association="Self.FK_costaDia_calendari">
+      <End Role="calendari" EntitySet="calendaris" />
+      <End Role="costaDia" EntitySet="costaDias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_habitacioDia_calendari" Association="Self.FK_habitacioDia_calendari">
+      <End Role="calendari" EntitySet="calendaris" />
+      <End Role="habitacioDia" EntitySet="habitacioDias" />
+    </AssociationSet>
+    <AssociationSet Name="costa_fk_TipusHab_has_Tarifa_Tarifa1" Association="Self.costa_fk_TipusHab_has_Tarifa_Tarifa1">
+      <End Role="tarifa" EntitySet="tarifas" />
+      <End Role="costa" EntitySet="costas" />
+    </AssociationSet>
+    <AssociationSet Name="costa_fk_TipusHab_has_Tarifa_TipusHab1" Association="Self.costa_fk_TipusHab_has_Tarifa_TipusHab1">
+      <End Role="tipusHab" EntitySet="tipusHabs" />
+      <End Role="costa" EntitySet="costas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_costaDia_tipusHab" Association="Self.FK_costaDia_tipusHab">
+      <End Role="tipusHab" EntitySet="tipusHabs" />
+      <End Role="costaDia" EntitySet="costaDias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_habitacioDia_habitacio" Association="Self.FK_habitacioDia_habitacio">
+      <End Role="habitacio" EntitySet="habitacios" />
+      <End Role="habitacioDia" EntitySet="habitacioDias" />
+    </AssociationSet>
+    <AssociationSet Name="habitacio_fk_Habitacio_TipusHab1" Association="Self.habitacio_fk_Habitacio_TipusHab1">
+      <End Role="tipusHab" EntitySet="tipusHabs" />
+      <End Role="habitacio" EntitySet="habitacios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_habitacioDia_reserva" Association="Self.FK_habitacioDia_reserva">
+      <End Role="reserva" EntitySet="reservas" />
+      <End Role="habitacioDia" EntitySet="habitacioDias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tipusHab_tipusBalco" Association="Self.FK_tipusHab_tipusBalco">
+      <End Role="tipusBalco" EntitySet="tipusBalcoes" />
+      <End Role="tipusHab" EntitySet="tipusHabs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
