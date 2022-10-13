@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace M13TipusHab.Model
@@ -17,12 +14,13 @@ namespace M13TipusHab.Model
             DbConnect();
         }
 
+        // Método que conecta a la base de datos
         public void DbConnect()
         {
             db = new hotelEntities();
         }
 
-
+        // Lista los tipos de balcón por orden de nombre
         public List<tipusBalco> GetTipusBalco()
         {
             List<tipusBalco> lt = new List<tipusBalco>();
@@ -37,6 +35,7 @@ namespace M13TipusHab.Model
             return lt;
         }
 
+        // Lista los tipos de habitación por orden de código
         public List<tipusHab> GetTipusHabs()
         {
             return db.tipusHabs.OrderBy(a => a.codi).ToList();

@@ -8,12 +8,10 @@ using System.Windows.Forms;
 
 namespace M13TipusHab.Controller
 {
-    //Hola nestor
     internal static class Program
     {
         /// <summary>
-        /// Pues aqui se hacen tipos de habitaciones de hotel
-        /// The main entry point for the application.
+        /// Ésta aplicación és un formulario para crear tipos de habitación
         /// </summary>
         [STAThread]
         static void Main()
