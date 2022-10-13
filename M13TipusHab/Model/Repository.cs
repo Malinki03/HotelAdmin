@@ -40,5 +40,11 @@ namespace M13TipusHab.Model
         {
             return db.tipusHabs.OrderBy(a => a.codi).ToList();
         }
+
+        public void addTipusHab(tipusHab tH)
+        {
+            db.tipusHabs.Add(tH);
+            Console.WriteLine(tH);
+        }
     }
 }

@@ -11,14 +11,21 @@ namespace M13TipusHab.Model
     public partial class tipusHab
     {
 
-        public tipusHab(TipusLlits tLlits, short? qntPersones, string tipusBalco, short? teBanyera)
+        public tipusHab(TipusLlits tLlits, short? qntPersones, string tipusBalco, bool teBanyera)
         {
-            this.nom = tLlits.ToString()+"."+tipusBalco+"."+teBanyera;
-            this.llitsInd = llitsInd;
-            this.llitsDob = llitsDob;
+            llitsInd = tLlits.llitsI;
+            llitsDob = tLlits.llitsD;
             this.qntPersones = qntPersones;
             this.tipusBalco = tipusBalco;
-            this.teBanyera = teBanyera;
+            if (teBanyera) { this.teBanyera = 1; }
+            else { this.teBanyera = 0; }
+            if(teBanyera) nom = tLlits.ToString()+"."+tipusBalco+".bany";
+            else nom = tLlits.ToString()+"."+tipusBalco+".dutx";
+        }
+
+        public override string ToString()
+        {
+            return this.nom + " " + this.llitsInd + " " + this.llitsDob + " " + this.qntPersones + " " + this.tipusBalco + " " + this.teBanyera;
         }
     }
 }
