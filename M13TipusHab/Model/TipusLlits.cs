@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace M13TipusHab.Model
 {
+    // Clase de tipos de camas
     public class TipusLlits
     {
         String nom;

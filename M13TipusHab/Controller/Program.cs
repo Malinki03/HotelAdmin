@@ -11,8 +11,7 @@ namespace M13TipusHab.Controller
     internal static class Program
     {
         /// <summary>
-        /// Pues aqui se hacen tipos de habitaciones de hotel
-        /// The main entry point for the application.
+        /// Ésta aplicación és un formulario para crear tipos de habitación
         /// </summary>
         [STAThread]
         static void Main()

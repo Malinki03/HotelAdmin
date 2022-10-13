@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace M13TipusHab.Model
 {
+    // Clase de tipo de habitación
     public partial class tipusHab
     {
 
