@@ -35,6 +35,22 @@ namespace M13TipusHab.Model
             return lt;
         }
 
+        //Metode que elimina un tipus d'habitacio de la base de dades.
+        public tipusHab DelTipusHab(tipusHab th) 
+        {
+            DelHabitacionsById(th);
+            db.tipusHabs.Remove(th);
+            db.SaveChanges();
+            return th;
+        }
+
+        public void DelHabitacionsById(tipusHab th)
+        {
+            List<habitacio> habitacions = db.habitacios.Select(h => h).Where(h => h.TipusHab_codi.Equals(th.codi)).ToList();
+            db.habitacios.RemoveRange(habitacions);
+            db.SaveChanges();
+        }
+
         // Lista los tipos de habitación por orden de código
         public List<tipusHab> GetTipusHabs()
         {

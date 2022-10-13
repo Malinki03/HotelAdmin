@@ -31,6 +31,11 @@ namespace M13TipusHab.Controller
             f.habDGV.DataSource = r.GetTipusHabs();
         }
 
+        void reloadDataGridView()
+        {
+            f.habDGV.DataSource = r.GetTipusHabs();
+        }
+
         // Evento que carga el contenido del combo box de tipos de combinaciones de cama, cambiando cuando se altere la combo box de número de personas
         void LoadComboBox2(object sender, EventArgs e)
         {
@@ -43,17 +48,19 @@ namespace M13TipusHab.Controller
         {
             f.persCombo.SelectedIndexChanged += LoadComboBox2;
             f.addButton.Click += AddButton_Click;
+            f.delButton.Click += DelButton_Click;
+        }
+
+        private void DelButton_Click(object sender, EventArgs e)
+        {
+            r.DelTipusHab((f.habDGV.SelectedRows[0].DataBoundItem as tipusHab));
+            reloadDataGridView();
         }
 
         // Evento que añade el tipo de habitación a la base de datos
         private void AddButton_Click(object sender, EventArgs e)
         {
             
-        }
-
-        public String getNomHab(tipusHab th)
-        {
-
         }
 
         // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
