@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.persCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.llitCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.balcCombo = new System.Windows.Forms.ComboBox();
             this.banyeraLabel = new System.Windows.Forms.Label();
-            this.banyeraCheckBox = new System.Windows.Forms.CheckBox();
+            this.banyCheck = new System.Windows.Forms.CheckBox();
             this.addButton = new System.Windows.Forms.Button();
             this.delButton = new System.Windows.Forms.Button();
             this.habDGV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // persCombo
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(31, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(70, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 0;
             // 
             // label1
@@ -68,12 +68,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Comb. llits";
             // 
-            // comboBox2
+            // llitCombo
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(130, 29);
+            this.comboBox2.Location = new System.Drawing.Point(193, 29);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(196, 21);
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 2;
             // 
             // label3
@@ -85,13 +85,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Tipus Balcó";
             // 
-            // comboBox3
+            // balcCombo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(358, 29);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 4;
+            this.balcCombo.FormattingEnabled = true;
+            this.balcCombo.Location = new System.Drawing.Point(358, 29);
+            this.balcCombo.Name = "balcCombo";
+            this.balcCombo.Size = new System.Drawing.Size(121, 21);
+            this.balcCombo.TabIndex = 4;
             // 
             // banyeraLabel
             // 
@@ -102,14 +102,14 @@
             this.banyeraLabel.TabIndex = 6;
             this.banyeraLabel.Text = "Té banyera?";
             // 
-            // banyeraCheckBox
+            // banyCheck
             // 
-            this.banyeraCheckBox.AutoSize = true;
-            this.banyeraCheckBox.Location = new System.Drawing.Point(538, 32);
-            this.banyeraCheckBox.Name = "banyeraCheckBox";
-            this.banyeraCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.banyeraCheckBox.TabIndex = 7;
-            this.banyeraCheckBox.UseVisualStyleBackColor = true;
+            this.banyCheck.AutoSize = true;
+            this.banyCheck.Location = new System.Drawing.Point(538, 32);
+            this.banyCheck.Name = "banyCheck";
+            this.banyCheck.Size = new System.Drawing.Size(15, 14);
+            this.banyCheck.TabIndex = 7;
+            this.banyCheck.UseVisualStyleBackColor = true;
             // 
             // addButton
             // 
@@ -145,14 +145,14 @@
             this.Controls.Add(this.habDGV);
             this.Controls.Add(this.delButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.banyeraCheckBox);
+            this.Controls.Add(this.banyCheck);
             this.Controls.Add(this.banyeraLabel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.balcCombo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.llitCombo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.persCombo);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.habDGV)).EndInit();
@@ -163,14 +163,14 @@
 
         #endregion
 
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox persCombo;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox llitCombo;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.ComboBox balcCombo;
         public System.Windows.Forms.Label banyeraLabel;
-        public System.Windows.Forms.CheckBox banyeraCheckBox;
+        public System.Windows.Forms.CheckBox banyCheck;
         public System.Windows.Forms.Button addButton;
         public System.Windows.Forms.Button delButton;
         public System.Windows.Forms.DataGridView habDGV;
