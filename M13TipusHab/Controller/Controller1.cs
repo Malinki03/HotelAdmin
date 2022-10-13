@@ -2,9 +2,6 @@
 using M13TipusHab.View;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace M13TipusHab.Controller
@@ -52,6 +49,11 @@ namespace M13TipusHab.Controller
         private void AddButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        public String getNomHab(tipusHab th)
+        {
+
         }
 
         // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
