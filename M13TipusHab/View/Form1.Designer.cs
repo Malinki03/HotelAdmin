@@ -44,11 +44,11 @@
             // 
             // persCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.persCombo.FormattingEnabled = true;
+            this.persCombo.Location = new System.Drawing.Point(31, 29);
+            this.persCombo.Name = "comboBox1";
+            this.persCombo.Size = new System.Drawing.Size(121, 21);
+            this.persCombo.TabIndex = 0;
             // 
             // label1
             // 
@@ -70,11 +70,11 @@
             // 
             // llitCombo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(193, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 2;
+            this.llitCombo.FormattingEnabled = true;
+            this.llitCombo.Location = new System.Drawing.Point(193, 29);
+            this.llitCombo.Name = "comboBox2";
+            this.llitCombo.Size = new System.Drawing.Size(121, 21);
+            this.llitCombo.TabIndex = 2;
             // 
             // label3
             // 
