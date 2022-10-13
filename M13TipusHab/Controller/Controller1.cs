@@ -26,22 +26,22 @@ namespace M13TipusHab.Controller
 
         void LoadData()
         {
-            f.comboBox1.DataSource = new List<int>() {1,2,3};
+            f.persCombo.DataSource = new List<int>() {0, 1, 2, 3};
             LoadComboBox2(null,null);
-            f.comboBox3.DataSource = r.GetTipusBalco();
-            f.comboBox3.DisplayMember = "nomTipusBalco";
+            f.balcCombo.DataSource = r.GetTipusBalco();
+            f.balcCombo.DisplayMember = "nomTipusBalco";
             f.habDGV.DataSource = r.GetTipusHabs();
         }
 
         void LoadComboBox2(object sender, EventArgs e)
         {
             List<String> lLlits = new List<String>() { "1 llit individual", "2 llits individuals", "1 llit matrimonial", "3 llits individuals", "1 llit matrimonial i 1 llit individual" }; ;
-            f.comboBox2.DataSource = LlistaLlits(lLlits, f.comboBox1.SelectedIndex);
+            f.llitCombo.DataSource = LlistaLlits(lLlits, f.persCombo.SelectedIndex);
         }
 
         void InitListener()
         {
-            f.comboBox1.SelectedIndexChanged += LoadComboBox2;
+            f.persCombo.SelectedIndexChanged += LoadComboBox2;
             f.addButton.Click += AddButton_Click;
         }
 
@@ -55,10 +55,12 @@ namespace M13TipusHab.Controller
             switch (n)
             {
                 case 0:
-                    return new List<string>() { "1 llit individual" };
+                    return lL;
                 case 1:
-                    return new List<string>() { "2 llits individuals", "1 llit matrimonial" };
+                    return new List<string>() { "1 llit individual" };
                 case 2:
+                    return new List<string>() { "2 llits individuals", "1 llit matrimonial" };
+                case 3:
                     return new List<string>() { "3 llits individuals", "1 llit matrimonial i 1 llit individual" };
                 default: return lL;
             }
