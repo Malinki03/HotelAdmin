@@ -3,6 +3,7 @@ using M13TipusHab.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace M13TipusHab.Controller
 {
@@ -51,6 +52,43 @@ namespace M13TipusHab.Controller
             f.delButton.Click += DelButton_Click;
         }
 
+        // Método que numeraliza 
+        short? ComboBox2Index(String comboBoxIndex)
+        {
+            if (comboBoxIndex.Equals("1 llit individual")) return 0;
+            else if (comboBoxIndex.Equals("2 llits individuals")) return 1;
+            else if (comboBoxIndex.Equals("1 llit matrimonial")) return 2;
+            else if (comboBoxIndex.Equals("3 llits individuals")) return 3;
+            else if (comboBoxIndex.Equals("1 llit matrimonial i 1 llit individual")) return 4;
+            else return null;
+        }
+
+        String formatTipusBalco(int tipusBalco)
+        {
+            if (tipusBalco == 0)
+            {
+                return "bal0";
+            }
+            else if (tipusBalco == 1)
+            {
+                return "balN";
+            }
+            else
+            {
+                return "balP";
+            }
+        }
+
+        // Evento que añade el tipo de habitación a la base de datos
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            r.addTipusHab(new tipusHab(
+                new TipusLlits(ComboBox2Index(f.llitCombo.Text)),
+                ((short)f.persCombo.SelectedIndex),
+                formatTipusBalco(f.balcCombo.SelectedIndex),
+                f.banyCheck.Checked));
+            LoadData();
+
         private void DelButton_Click(object sender, EventArgs e)
         {
             r.DelTipusHab((f.habDGV.SelectedRows[0].DataBoundItem as tipusHab));
@@ -62,6 +100,11 @@ namespace M13TipusHab.Controller
         {
             
         }
+
+     //   public String getNomHab(tipusHab th)
+       // {
+
+      //  }
 
         // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
         private List<string> LlistaLlits(List<String> lL, int n)

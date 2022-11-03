@@ -46,8 +46,8 @@
             // 
             this.persCombo.FormattingEnabled = true;
             this.persCombo.Location = new System.Drawing.Point(31, 29);
-            this.persCombo.Name = "comboBox1";
-            this.persCombo.Size = new System.Drawing.Size(121, 21);
+            this.persCombo.Name = "persCombo";
+            this.persCombo.Size = new System.Drawing.Size(48, 21);
             this.persCombo.TabIndex = 0;
             // 
             // label1
@@ -62,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 13);
+            this.label2.Location = new System.Drawing.Point(94, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 3;
@@ -71,9 +71,9 @@
             // llitCombo
             // 
             this.llitCombo.FormattingEnabled = true;
-            this.llitCombo.Location = new System.Drawing.Point(193, 29);
-            this.llitCombo.Name = "comboBox2";
-            this.llitCombo.Size = new System.Drawing.Size(121, 21);
+            this.llitCombo.Location = new System.Drawing.Point(97, 29);
+            this.llitCombo.Name = "llitCombo";
+            this.llitCombo.Size = new System.Drawing.Size(208, 21);
             this.llitCombo.TabIndex = 2;
             // 
             // label3
