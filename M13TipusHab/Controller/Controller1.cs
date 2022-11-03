@@ -96,11 +96,6 @@ namespace M13TipusHab.Controller
                 reloadDataGridView();
             }
 
-            //   public String getNomHab(tipusHab th)
-            // {
-
-            //  }
-
             // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
             private List<string> LlistaLlits(List<String> lL, int n)
             {

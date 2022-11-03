@@ -61,6 +61,7 @@ namespace M13TipusHab.Model
         {
             db.tipusHabs.Add(tH);
             Console.WriteLine(tH);
+            db.SaveChanges();
         }
     }
 }
