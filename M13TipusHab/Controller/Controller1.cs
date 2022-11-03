@@ -25,8 +25,8 @@ namespace M13TipusHab.Controller
         // Método que carga todos los datos de la aplicación
         void LoadData()
         {
-            f.persCombo.DataSource = new List<int>() {0, 1, 2, 3};
-            LoadComboBox2(null,null);
+            f.persCombo.DataSource = new List<int>() { 0, 1, 2, 3 };
+            LoadComboBox2(null, null);
             f.balcCombo.DataSource = r.GetTipusBalco();
             f.balcCombo.DisplayMember = "nomTipusBalco";
             f.habDGV.DataSource = r.GetTipusHabs();
@@ -88,39 +88,34 @@ namespace M13TipusHab.Controller
                 formatTipusBalco(f.balcCombo.SelectedIndex),
                 f.banyCheck.Checked));
             LoadData();
-
-        private void DelButton_Click(object sender, EventArgs e)
-        {
-            r.DelTipusHab((f.habDGV.SelectedRows[0].DataBoundItem as tipusHab));
-            reloadDataGridView();
         }
 
-        // Evento que añade el tipo de habitación a la base de datos
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-     //   public String getNomHab(tipusHab th)
-       // {
-
-      //  }
-
-        // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
-        private List<string> LlistaLlits(List<String> lL, int n)
-        {
-            switch (n)
+            private void DelButton_Click(object sender, EventArgs e)
             {
-                case 0:
-                    return lL;
-                case 1:
-                    return new List<string>() { "1 llit individual" };
-                case 2:
-                    return new List<string>() { "2 llits individuals", "1 llit matrimonial" };
-                case 3:
-                    return new List<string>() { "3 llits individuals", "1 llit matrimonial i 1 llit individual" };
-                default: return lL;
+                r.DelTipusHab((f.habDGV.SelectedRows[0].DataBoundItem as tipusHab));
+                reloadDataGridView();
+            }
+
+            //   public String getNomHab(tipusHab th)
+            // {
+
+            //  }
+
+            // Método que elige que opciones expone en el combo box de tipos de combinaciones de camas
+            private List<string> LlistaLlits(List<String> lL, int n)
+            {
+                switch (n)
+                {
+                    case 0:
+                        return lL;
+                    case 1:
+                        return new List<string>() { "1 llit individual" };
+                    case 2:
+                        return new List<string>() { "2 llits individuals", "1 llit matrimonial" };
+                    case 3:
+                        return new List<string>() { "3 llits individuals", "1 llit matrimonial i 1 llit individual" };
+                    default: return lL;
+                }
             }
         }
     }
-}
